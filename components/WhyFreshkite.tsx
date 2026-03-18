@@ -13,7 +13,7 @@ export default function WhyFreshkite() {
               </span>
             </div>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0F172A] mb-4 leading-tight">
-              Web. AI. Embedded. DSA.{" "}
+              Web. AI. Embedded. DSA & System Design.{" "}
               <span className="text-[#2563EB]">One program.</span>
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed">
