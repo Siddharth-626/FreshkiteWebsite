@@ -300,6 +300,16 @@ export const DOMAINS = [
     description:
       "Master professional embedded systems — advanced C, Linux internals, WLAN stack, and kernel development used at Qualcomm-level companies.",
   },
+  {
+    icon: "⚡",
+    title: "DSA & System Design",
+    color: "#F97316",
+    bg: "bg-[#F97316]/5 border-[#F97316]/20",
+    pill: "text-[#9a3412] bg-[#F97316]/10 border-[#F97316]/20",
+    skills: ["Arrays & Trees & Graphs", "Dynamic Programming", "Sliding Window", "Low-Level Design", "High-Level Design", "Distributed Systems"],
+    description:
+      "Crack FAANG-level technical interviews with deep DSA mastery, then architect large-scale systems with Low-Level and High-Level Design patterns.",
+  },
 ];
 
 // ─── Why Freshkite differentiators ───────────────────────────────────────────

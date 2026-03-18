@@ -13,17 +13,17 @@ export default function WhyFreshkite() {
               </span>
             </div>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0F172A] mb-4 leading-tight">
-              Web. AI. Embedded.{" "}
+              Web. AI. Embedded. DSA.{" "}
               <span className="text-[#2563EB]">One program.</span>
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed">
               Most training centres teach a single stack. Freshkite gives you depth across
-              all three major software disciplines — so you can choose your path with clarity,
+              all four major software disciplines — so you can choose your path with clarity,
               not guesswork.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {DOMAINS.map((domain) => (
               <div
                 key={domain.title}
@@ -168,7 +168,7 @@ export default function WhyFreshkite() {
                   {[
                     "Live sessions, real-time Q&A every class",
                     "Build projects from day one",
-                    "Web, AI & Embedded — full spectrum",
+                    "Web, AI, Embedded & DSA — full spectrum",
                     "Small batches, mentored individually",
                     "GitHub portfolio that gets you hired",
                   ].map((item) => (

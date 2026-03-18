@@ -63,6 +63,7 @@ export default function Hero() {
               { label: "🌐 Web Dev", color: "border-[#2563EB]/30 text-[#93c5fd] bg-[#2563EB]/10" },
               { label: "🤖 AI Engineering", color: "border-[#22C55E]/30 text-[#86efac] bg-[#22C55E]/10" },
               { label: "🔌 Embedded Systems", color: "border-[#FACC15]/30 text-[#fde047] bg-[#FACC15]/10" },
+              { label: "⚡ DSA & System Design", color: "border-[#F97316]/30 text-[#fdba74] bg-[#F97316]/10" },
             ].map(({ label, color }) => (
               <span
                 key={label}
@@ -75,7 +76,7 @@ export default function Hero() {
 
           {/* Subheadline */}
           <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-lg">
-            Practical, live classes across Web, AI, and Embedded Systems.
+            Practical, live classes across Web, AI, Embedded Systems, and DSA & System Design.
             Industry mentors with 20+ years of real-world experience.
             Placements at top software companies.
           </p>
@@ -183,7 +184,7 @@ export default function Hero() {
             </div>
 
             {/* Domain: Embedded */}
-            <div className="mb-5 border border-[#FACC15]/20 bg-[#FACC15]/5 rounded-xl p-4">
+            <div className="mb-3 border border-[#FACC15]/20 bg-[#FACC15]/5 rounded-xl p-4">
               <div className="flex items-center gap-2 mb-2.5">
                 <span className="text-sm">🔌</span>
                 <span className="text-xs font-bold text-[#fde047] uppercase tracking-wider">
@@ -193,6 +194,23 @@ export default function Hero() {
               <div className="flex flex-wrap gap-1.5">
                 {["Advanced C", "Linux Kernel", "WLAN Stack", "Embedded Linux", "Debugging"].map((tech) => (
                   <span key={tech} className="text-xs font-medium px-2 py-0.5 rounded-md bg-[#FACC15]/10 border border-[#FACC15]/15 text-slate-300">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Domain: DSA & System Design */}
+            <div className="mb-5 border border-[#F97316]/20 bg-[#F97316]/5 rounded-xl p-4">
+              <div className="flex items-center gap-2 mb-2.5">
+                <span className="text-sm">⚡</span>
+                <span className="text-xs font-bold text-[#fdba74] uppercase tracking-wider">
+                  DSA & System Design
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {["Arrays & Trees", "Dynamic Programming", "LLD", "HLD", "Distributed Systems"].map((tech) => (
+                  <span key={tech} className="text-xs font-medium px-2 py-0.5 rounded-md bg-[#F97316]/10 border border-[#F97316]/15 text-slate-300">
                     {tech}
                   </span>
                 ))}
