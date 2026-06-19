@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
+import ProductsSection from "@/components/ProductsSection";
 import WhyFreshkite from "@/components/WhyFreshkite";
 import FounderSection from "@/components/FounderSection";
 import Roadmap from "@/components/Roadmap";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <TrustBar />
+      <ProductsSection />
       <WhyFreshkite />
       <FounderSection />
       <Roadmap />

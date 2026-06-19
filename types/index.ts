@@ -69,3 +69,18 @@ export interface YTVideo {
   title: string;
   description: string;
 }
+
+export interface Product {
+  id: string;
+  name: string;
+  icon: string;
+  tagline: string;
+  image: string;
+  description: string;
+  overview: string;
+  features: string[];
+  color: string;
+  buttonLabel: string;
+  href: string;
+  benefits: { title: string; description: string }[];
+}

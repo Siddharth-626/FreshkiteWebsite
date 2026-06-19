@@ -262,6 +262,7 @@ export const STEPS = [
 export const NAV_LINKS = [
   { label: "Program", href: "#program" },
   { label: "Placements", href: "#placements" },
+  { label: "Projects", href: "/projects" },
   { label: "About", href: "#about" },
   { label: "Team", href: "#team" },
   { label: "Videos", href: "#videos" },
@@ -375,6 +376,127 @@ export const YT_SHORTS = [
 ];
 
 // ─── Team Members ─────────────────────────────────────────────────────────────
+// ─── Products ─────────────────────────────────────────────────────────────────
+export const PRODUCTS = [
+  {
+    id: "freshkite-lms",
+    name: "Freshkite LMS",
+    icon: "🎓",
+    tagline: "Complete learning management for modern education",
+    image: "/images/project_images/lms.png",
+    description:
+      "A complete learning management platform where students can access courses, videos, documents, assignments, learning paths, and progress tracking in one place.",
+    overview:
+      "Freshkite LMS is built for institutions and educators who want to deliver structured, engaging learning experiences. From course creation to student progress tracking, every feature is designed to reduce administrative overhead while maximizing learning outcomes. Whether you run a training institute, university, or corporate learning program, Freshkite LMS adapts to your workflow.",
+    features: [
+      "Course Management",
+      "Video Learning",
+      "Learning Progress Tracking",
+      "Documents & Resources",
+      "Assessments",
+      "Student Dashboard",
+    ],
+    color: "#2563EB",
+    buttonLabel: "Explore LMS",
+    href: "/projects/freshkite-lms",
+    benefits: [
+      {
+        title: "Training Institutes",
+        description:
+          "Deliver structured programs with clear learning paths, assignments, and progress tracking for each student cohort.",
+      },
+      {
+        title: "Educators & Mentors",
+        description:
+          "Upload course content, set assessments, and monitor student performance — all from one dashboard.",
+      },
+      {
+        title: "Students & Learners",
+        description:
+          "Access all your courses, videos, and resources in one place. Track your own progress and stay on schedule.",
+      },
+    ],
+  },
+  {
+    id: "school-erp",
+    name: "School ERP",
+    icon: "🏫",
+    tagline: "All-in-one school management platform",
+    image: "/images/project_images/SchoolApp.png",
+    description:
+      "An all-in-one school management system that streamlines administration, student management, academic operations, and communication.",
+    overview:
+      "School ERP brings every aspect of institutional management under one roof. Administrators manage operations, teachers handle academics, and students access their information — all through purpose-built portals. Designed to eliminate manual paperwork and fragmented systems, School ERP helps schools run efficiently and communicate effectively with every stakeholder.",
+    features: [
+      "Student Portal",
+      "Teacher Portal",
+      "Admin Dashboard",
+      "Attendance Management",
+      "Academic Tracking",
+      "School Operations",
+    ],
+    color: "#22C55E",
+    buttonLabel: "Explore ERP",
+    href: "/projects/school-erp",
+    benefits: [
+      {
+        title: "School Administrators",
+        description:
+          "Manage admissions, staff, fees, and operations from a single admin dashboard with real-time reporting.",
+      },
+      {
+        title: "Teachers & Faculty",
+        description:
+          "Record attendance, update grades, plan academics, and communicate with students and parents easily.",
+      },
+      {
+        title: "Students & Parents",
+        description:
+          "Access timetables, results, attendance records, and school announcements through a dedicated portal.",
+      },
+    ],
+  },
+  {
+    id: "prephire",
+    name: "PrepHire AI",
+    icon: "⚡",
+    tagline: "AI-powered interview prep and talent discovery",
+    image: "/images/project_images/prephite.png",
+    description:
+      "An AI-powered interview preparation and hiring platform helping students practice interviews while enabling companies to discover and recruit talent.",
+    overview:
+      "PrepHire AI bridges the gap between candidates and companies. Students practice technical and HR interviews with an AI interviewer that gives instant, detailed feedback. Recruiters get access to a verified talent pool with performance analytics — replacing guesswork with data-driven hiring. For educational institutions, PrepHire completes the placement pipeline from preparation to placement.",
+    features: [
+      "AI Mock Interviews",
+      "Coding Practice",
+      "Performance Analytics",
+      "Progress Tracking",
+      "Recruiter Dashboard",
+      "Candidate Discovery",
+    ],
+    color: "#8B5CF6",
+    buttonLabel: "Explore PrepHire",
+    href: "/projects/prephire",
+    benefits: [
+      {
+        title: "Students & Job Seekers",
+        description:
+          "Practice interviews with AI, get instant feedback, and build confidence before walking into the real thing.",
+      },
+      {
+        title: "Companies & Recruiters",
+        description:
+          "Discover pre-assessed candidates, review performance data, and hire faster with greater confidence.",
+      },
+      {
+        title: "Educational Institutions",
+        description:
+          "Track student interview readiness, identify skill gaps, and measure placement outcomes across batches.",
+      },
+    ],
+  },
+];
+
 export const TEAM = [
   {
     name: "Balamurugan",
