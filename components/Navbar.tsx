@@ -16,19 +16,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // On non-home pages, anchor links should route back to homepage first
-  const getLinkHref = (href: string) => {
-    if (href.startsWith("#") && pathname !== "/") {
-      return `/${href}`;
-    }
-    return href;
-  };
-
-  // Highlight page route links when the current path matches
+  // Only highlight page-level links (not hash links like /training#about)
   const isActivePage = (href: string) => {
-    if (!href.startsWith("/")) return false;
+    if (!href.startsWith("/") || href.includes("#")) return false;
     return pathname === href || pathname.startsWith(`${href}/`);
   };
+
+  const isTraining = pathname === "/training";
+  const ctaLabel = isTraining ? "Apply Now" : "Book a Demo";
+  const ctaHref = isTraining ? "#apply" : "/training#apply";
 
   return (
     <header
@@ -64,7 +60,7 @@ export default function Navbar() {
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
-              href={getLinkHref(link.href)}
+              href={link.href}
               className={`text-sm font-medium transition-colors duration-200 hover:text-[#2563EB] ${
                 isActivePage(link.href)
                   ? "text-[#2563EB]"
@@ -81,10 +77,10 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href={pathname === "/" ? "#apply" : "/#apply"}
+            href={ctaHref}
             className="bg-[#2563EB] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1d4ed8] transition-colors duration-200 hover:shadow-md hover:shadow-[#2563EB]/20"
           >
-            Apply Now
+            {ctaLabel}
           </a>
         </div>
 
@@ -100,19 +96,9 @@ export default function Navbar() {
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {menuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
@@ -124,7 +110,7 @@ export default function Navbar() {
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
-              href={getLinkHref(link.href)}
+              href={link.href}
               onClick={() => setMenuOpen(false)}
               className={`text-sm font-medium transition-colors py-1 ${
                 isActivePage(link.href)
@@ -137,11 +123,11 @@ export default function Navbar() {
           ))}
           <div className="pt-2 border-t border-slate-100">
             <a
-              href={pathname === "/" ? "#apply" : "/#apply"}
+              href={ctaHref}
               onClick={() => setMenuOpen(false)}
               className="block bg-[#2563EB] text-white text-sm font-semibold px-5 py-3 rounded-lg text-center hover:bg-[#1d4ed8] transition-colors"
             >
-              Apply Now
+              {ctaLabel}
             </a>
           </div>
         </div>

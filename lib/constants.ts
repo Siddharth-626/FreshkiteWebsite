@@ -260,13 +260,10 @@ export const STEPS = [
 ];
 
 export const NAV_LINKS = [
-  { label: "Program", href: "#program" },
-  { label: "Placements", href: "#placements" },
-  { label: "Projects", href: "/projects" },
-  { label: "About", href: "#about" },
-  { label: "Team", href: "#team" },
-  { label: "Videos", href: "#videos" },
-  { label: "Apply", href: "#apply" },
+  { label: "Products", href: "/projects" },
+  { label: "Training", href: "/training" },
+  { label: "About", href: "/training#about" },
+  { label: "Contact", href: "/training#apply" },
 ];
 
 // ─── Domains covered ─────────────────────────────────────────────────────────
