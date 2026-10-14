@@ -1,0 +1,99 @@
+rules_version = '2';
+
+// Freshkite — free Java & Problem Solving training registrations.
+// Validation limits mirror lib/registration.ts — change both together.
+// Tests: tests/firestore.rules.test.mjs (npm run test:rules).
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Administrators are listed at admins/{uid}. That collection can only be written
+    // from the Firebase Console or the Admin SDK — never by a client.
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function isCleanString(value, minLen, maxLen) {
+      return value is string
+        && value.size() >= minLen
+        && value.size() <= maxLen
+        && value.trim() == value;
+    }
+
+    function registrationPath(id) {
+      return /databases/$(database)/documents/studentRegistrations/$(id);
+    }
+
+    function emailLockPath(email) {
+      return /databases/$(database)/documents/registrationEmails/$(email);
+    }
+
+    function isValidNewRegistration(registrationId) {
+      let data = request.resource.data;
+      return data.keys().hasOnly(['fullName', 'email', 'phoneNumber', 'collegeName', 'branch', 'status', 'registeredAt'])
+        && data.keys().hasAll(['fullName', 'email', 'phoneNumber', 'collegeName', 'branch', 'status', 'registeredAt'])
+        && isCleanString(data.fullName, 2, 100)
+        && data.email is string
+        && data.email.size() <= 254
+        && data.email == data.email.lower()
+        && data.email.matches("^[a-z0-9._%+'-]+@[a-z0-9-]+([.][a-z0-9-]+)*[.][a-z]{2,}$")
+        && data.phoneNumber is string
+        && data.phoneNumber.matches('^[+][1-9][0-9]{6,14}$')
+        && isCleanString(data.collegeName, 2, 150)
+        && isCleanString(data.branch, 2, 100)
+        && data.status == 'registered'
+        && data.registeredAt == request.time
+        // Must be written in the same batch as an email lock that points back at this document.
+        && getAfter(emailLockPath(data.email)).data.registrationId == registrationId;
+    }
+
+    function isValidEmailLock(email) {
+      let data = request.resource.data;
+      return data.keys().hasOnly(['registrationId', 'createdAt'])
+        && data.keys().hasAll(['registrationId', 'createdAt'])
+        && data.registrationId is string
+        && data.createdAt == request.time
+        && getAfter(registrationPath(data.registrationId)).data.email == email;
+    }
+
+    function isValidStatusUpdate() {
+      let data = request.resource.data;
+      return data.diff(resource.data).affectedKeys().hasOnly(['status', 'statusUpdatedAt', 'statusUpdatedBy'])
+        && data.status in ['registered', 'contacted', 'selected', 'rejected']
+        && data.statusUpdatedAt == request.time
+        && data.statusUpdatedBy == request.auth.uid;
+    }
+
+    match /admins/{uid} {
+      // A signed-in user may check only their own admin entry.
+      allow get: if isSignedIn() && request.auth.uid == uid;
+      allow list, create, update, delete: if false;
+    }
+
+    match /studentRegistrations/{registrationId} {
+      allow get, list: if isAdmin();
+      // Public, unauthenticated registration — strictly validated, create-only.
+      allow create: if isValidNewRegistration(registrationId);
+      allow update: if isAdmin() && isValidStatusUpdate();
+      allow delete: if false;
+    }
+
+    // One document per normalized email. Creating it fails if it already exists
+    // (a write to an existing document is an update, which is denied), so a second
+    // registration with the same email is rejected atomically with no reads exposed.
+    match /registrationEmails/{email} {
+      allow create: if isValidEmailLock(email);
+      allow get, list, update, delete: if false;
+    }
+
+    // Everything else is closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

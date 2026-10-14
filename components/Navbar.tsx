@@ -23,8 +23,9 @@ export default function Navbar() {
   };
 
   const isTraining = pathname === "/training";
-  const ctaLabel = isTraining ? "Apply Now" : "Book a Demo";
-  const ctaHref = isTraining ? "#apply" : "/training#apply";
+  const isRegister = pathname === "/register";
+  const ctaLabel = isRegister ? "Register Free" : isTraining ? "Apply Now" : "Book a Demo";
+  const ctaHref = isRegister ? "#register-form" : isTraining ? "#apply" : "/training#apply";
 
   return (
     <header

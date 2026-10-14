@@ -70,6 +70,24 @@ export interface YTVideo {
   description: string;
 }
 
+export type RegistrationStatus = "registered" | "contacted" | "selected" | "rejected";
+
+/** Fields a student submits on /register. */
+export interface RegistrationInput {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  collegeName: string;
+  branch: string;
+}
+
+/** A registration as read by the admin dashboard (Firestore Timestamp converted to Date). */
+export interface StudentRegistration extends RegistrationInput {
+  id: string;
+  registeredAt: Date | null;
+  status: RegistrationStatus;
+}
+
 export interface Product {
   id: string;
   name: string;

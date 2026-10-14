@@ -19,3 +19,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# firebase emulators
+firestore-debug.log
+firebase-debug.log
+ui-debug.log
+.firebase/
+hs_err_pid*.log
