@@ -524,21 +524,22 @@ export const TEAM = [
 
 // ─── Free one-week Java & Problem Solving training (/register) ──────────────
 export const FREE_TRAINING = {
-  badge: "100% Free · One-Week Training",
+  badge: "100% Free Training · 3-Month Internship · Placements",
   headline: "Launch Your Software Engineering Journey",
-  subheadline: "Free One-Week Java & Problem Solving Training for College Students",
+  subheadline: "Free One-Week Java & Problem Solving Training + 3-Month Internship with Placements",
   description:
-    "Build a strong foundation in Java programming and problem solving through focused, hands-on training designed for college students.",
+    "Build a strong foundation in Java programming and problem solving through focused, hands-on training designed for college students. Top performers move on to a three-month internship with placement support.",
   cta: "Register for Free Training",
   highlights: [
     "100% free one-week training program",
     "Learn Java programming fundamentals",
     "Develop logical thinking and problem-solving skills",
     "Strengthen your programming foundation",
-    "Opportunity to be considered for a three-month internship based on performance during the training",
+    "Three-month internship for students who perform well in the training",
+    "Placement support for internship students",
   ],
   eligibility:
-    "Students who demonstrate strong performance during the training will be considered for a three-month internship. Internship selection is performance-based and is not guaranteed.",
+    "Students who perform well during the one-week training are selected for a three-month internship with placement support. Selection is based on performance during the training.",
   submitLabel: "Apply for Free Training",
   submittingLabel: "Submitting Registration...",
   successTitle: "Registration Successful!",

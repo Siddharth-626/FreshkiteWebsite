@@ -7,16 +7,16 @@ import { CONTACT, FREE_TRAINING } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Free Java & Problem Solving Training for College Students | Freshkite",
   description:
-    "Register for Freshkite's free one-week Java and problem solving training. Strengthen your programming foundation, and top performers will be considered for a three-month internship.",
+    "Register for Freshkite's free one-week Java and problem solving training. Top performers get a three-month internship with placement support.",
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://freshkite.in/register",
     siteName: "Freshkite",
-    title: "Free One-Week Java & Problem Solving Training | Freshkite",
+    title: "Free Java Training + 3-Month Internship with Placements | Freshkite",
     description:
-      "A free one-week training for college students. Learn Java fundamentals and problem solving with Freshkite.",
+      "A free one-week Java and problem solving training for college students, with a three-month internship and placement support for top performers.",
     images: [{ url: "https://freshkite.in/og-image.png", width: 1200, height: 630, alt: "Freshkite Free Java Training" }],
   },
   alternates: { canonical: "https://freshkite.in/register" },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function RegisterPage() {
   return (
-    <main>
+    <main> 
       <Navbar />
 
       <section className="relative bg-[#0F172A] overflow-hidden">
@@ -80,7 +80,7 @@ export default function RegisterPage() {
           <div className="lg:col-span-2">
             <span className="text-[#2563EB] text-sm font-semibold tracking-widest uppercase">Program Highlights</span>
             <h2 className="mt-3 text-3xl font-extrabold text-[#0F172A] tracking-tight mb-8">
-              What you&apos;ll get in one week
+              What you&apos;ll get
             </h2>
 
             <ul className="space-y-4 mb-10">
@@ -97,7 +97,7 @@ export default function RegisterPage() {
             </ul>
 
             <div className="bg-white border border-slate-200 rounded-2xl p-5">
-              <h3 className="text-sm font-bold text-[#0F172A] mb-2">Internship eligibility</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] mb-2">3-month internship &amp; placements</h3>
               <p className="text-sm text-slate-600 leading-relaxed">{FREE_TRAINING.eligibility}</p>
             </div>
 

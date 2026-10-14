@@ -178,7 +178,23 @@ export default function HomePage() {
               >
                 View Training Program
               </a>
+              <a
+                href="/register"
+                className="inline-flex items-center justify-center gap-2 bg-[#22C55E] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#16a34a] transition-all duration-200 hover:shadow-lg hover:shadow-[#22C55E]/30 hover:-translate-y-0.5 text-sm"
+              >
+                Register for Free Training
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
             </div>
+            <p className="mt-5 text-sm text-slate-400">
+              <span className="font-semibold text-[#86efac]">College students:</span> free one-week Java training
+              + 3-month internship with placements.{" "}
+              <a href="/register" className="font-semibold text-white underline underline-offset-4 hover:text-[#86efac]">
+                Register now
+              </a>
+            </p>
           </div>
 
           {/* Product preview cards */}
